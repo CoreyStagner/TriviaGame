@@ -1,3 +1,13 @@
 body, html{
 	background-color: #B2CCE6;
 }
+
+.footer{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+#content{
+	margin-bottom: 100px;
+}

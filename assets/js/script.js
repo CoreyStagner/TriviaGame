@@ -1,7 +1,6 @@
 $(document).ready(function(){
 	hideMe("#game");
 	hideMe("#results");
-	hideMe(".answerReveal");
 	//Standard Calls
 
 	function log(e){
@@ -12,7 +11,7 @@ $(document).ready(function(){
 
 	//Game Creation
 
-	var counter = 6;
+	var counter = 90;
 	var correctGuess = 0;
 	var incorrectGuess = 0;
 	function hideMe(e){
@@ -27,7 +26,7 @@ $(document).ready(function(){
 
 	function timer(i){
 		counter--; 
-		$("#announcement").html("<h2 style='text-align:right'>You have " + counter + " seconds remaining!</h2>")
+		$("#stopwatch").html("<h2 style='text-align:right'>You have " + counter + " seconds remaining!</h2>")
 		if(counter === 0 ){
 			endGame();
 			// $("#announcement").html("<h2 style='text-align:center'>You have run out of time</h2>")
@@ -42,12 +41,13 @@ $(document).ready(function(){
 	}
 
 	function startGame(){
+		showMe("#stopwatch")
 		$("#game").find(":input").each(function(){
 			switch(this.type){
 				case "radio": this.checked = false;
 			}
 		})
-		counter = 6;
+		counter = 90;
 		correctGuess = 0;
 		incorrectGuess = 0;	
 		timer();
@@ -70,8 +70,19 @@ $(document).ready(function(){
 	}
 
 	function endGame(){
+		$("#result1").css("background-color", "green");
+		$("#result2").css("background-color", "green");
+		$("#result3").css("background-color", "green");
+		$("#result4").css("background-color", "green");
+		$("#result5").css("background-color", "green");
+		$("#result6").css("background-color", "green");
+		$("#result7").css("background-color", "green");
+		$("#result8").css("background-color", "green");
+		$("#result9").css("background-color", "green");
+		$("#result10").css("background-color", "green");
 		clearInterval(remaining);
 		hideMe("#announcement");
+		hideMe("#stopwatch");
 		var a1 = "d";
 		var a2 = "b";
 		var a3 = "a";
@@ -108,10 +119,12 @@ $(document).ready(function(){
 			log("You answered Question 1 correctly.")
 		} else if(guess1 === "a"){
 			incorrectGuess++;
+			$("#result1").css("background-color", "red");
 			alert("YOU ARE A JERK FOR SAYING THAT I SUCK!!!!!!!!!!!!!!");
 			log("JERK!!! Wrong!"); 
 		} else {
 			incorrectGuess++;
+			$("#result1").css("background-color", "red");
 			log("You answered Question 1 incorrectly.")
 		}
 
@@ -120,6 +133,7 @@ $(document).ready(function(){
 			log("You answered Question 2 correctly.")
 		}  else {
 			incorrectGuess++;
+			$("#result2").css("background-color", "red");
 			log("You answered Question 2 incorrectly.")
 		}
 
@@ -128,6 +142,7 @@ $(document).ready(function(){
 			log("You answered Question 3 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result3").css("background-color", "red");
 			log("You answered Question 3 incorrectly.")
 		}
 
@@ -136,6 +151,7 @@ $(document).ready(function(){
 			log("You answered Question 4 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result4").css("background-color", "red");
 			log("You answered Question 4 incorrectly.")
 		}
 
@@ -144,6 +160,7 @@ $(document).ready(function(){
 			log("You answered Question 5 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result5").css("background-color", "red");
 			log("You answered Question 5 incorrectly.")
 		}
 
@@ -152,6 +169,7 @@ $(document).ready(function(){
 			log("You answered Question 6 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result6").css("background-color", "red");
 			log("You answered Question 6 incorrectly.")
 		}
 
@@ -160,6 +178,7 @@ $(document).ready(function(){
 			log("You answered Question 7 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result7").css("background-color", "red");
 			log("You answered Question 7 incorrectly.")
 		}
 
@@ -168,6 +187,7 @@ $(document).ready(function(){
 			log("You answered Question 8 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result8").css("background-color", "red");
 			log("You answered Question 8 incorrectly.")
 		}
 
@@ -176,6 +196,7 @@ $(document).ready(function(){
 			log("You answered Question 9 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result9").css("background-color", "red");
 			log("You answered Question 9 incorrectly.")
 		}
 
@@ -184,6 +205,7 @@ $(document).ready(function(){
 			log("You answered Question 10 correctly.")
 		} else {
 			incorrectGuess++;
+			$("#result10").css("background-color", "red");
 			log("You answered Question 10 incorrectly.")
 		}
 
